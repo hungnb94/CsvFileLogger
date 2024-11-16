@@ -6,7 +6,6 @@ import com.elvishew.xlog.LogLevel
 import com.elvishew.xlog.XLog
 import com.elvishew.xlog.printer.AndroidPrinter
 import com.elvishew.xlog.printer.Printer
-import com.elvishew.xlog.printer.file.FilePrinter
 import com.elvishew.xlog.printer.file.naming.DateFileNameGenerator
 
 class LogApplication : Application() {
@@ -28,7 +27,7 @@ class LogApplication : Application() {
 		val androidPrinter: Printer =
 			AndroidPrinter(true) // Printer that print the log using android.util.Log
 		val filePrinter: Printer =
-			FilePrinter
+			MyFilePrinter
 				.Builder(obbDir.absolutePath) // Specify the directory path of log file(s)
 				.fileNameGenerator(DateFileNameGenerator()) // Default: ChangelessFileNameGenerator("log")
 				.build()
@@ -38,9 +37,10 @@ class LogApplication : Application() {
 			androidPrinter, // Specify printers, if no printer is specified, AndroidPrinter(for Android)/ConsolePrinter(for java) will be used.
 			filePrinter,
 		)
+		val exceptionHandler = Thread.getDefaultUncaughtExceptionHandler()
 		Thread.setDefaultUncaughtExceptionHandler { thread, exception ->
 			XLog.e("Face uncaught exception", exception)
-			throw exception
+			exceptionHandler!!.uncaughtException(thread, exception)
 		}
 	}
 }
