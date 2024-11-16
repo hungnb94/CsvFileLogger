@@ -7,6 +7,9 @@ import com.elvishew.xlog.XLog
 import com.elvishew.xlog.printer.AndroidPrinter
 import com.elvishew.xlog.printer.Printer
 import com.elvishew.xlog.printer.file.naming.DateFileNameGenerator
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class LogApplication : Application() {
 	override fun onCreate() {
@@ -29,8 +32,18 @@ class LogApplication : Application() {
 		val filePrinter: Printer =
 			MyFilePrinter
 				.Builder(obbDir.absolutePath) // Specify the directory path of log file(s)
-				.fileNameGenerator(DateFileNameGenerator()) // Default: ChangelessFileNameGenerator("log")
-				.build()
+				.fileNameGenerator(
+					object : DateFileNameGenerator() {
+						val timeFormat = SimpleDateFormat("yyyy-MM-dd_HH:mm:ss", Locale.US)
+
+						override fun generateFileName(
+							logLevel: Int,
+							timestamp: Long,
+						): String = timeFormat.format(Date(timestamp)) + ".txt"
+
+						override fun isFileNameChangeable(): Boolean = false
+					},
+				).build()
 
 		XLog.init( // Initialize XLog
 			config, // Specify the log configuration, if not specified, will use new LogConfiguration.Builder().build()
