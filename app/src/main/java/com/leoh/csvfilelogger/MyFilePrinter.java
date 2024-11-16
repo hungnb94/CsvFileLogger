@@ -2,7 +2,6 @@ package com.leoh.csvfilelogger;
 
 import android.util.Log;
 
-import com.elvishew.xlog.LogItem;
 import com.elvishew.xlog.flattener.Flattener;
 import com.elvishew.xlog.flattener.Flattener2;
 import com.elvishew.xlog.internal.DefaultsFactory;
