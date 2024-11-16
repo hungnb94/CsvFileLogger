@@ -1,0 +1,6 @@
+[*]
+indent_style = tab
+indent_size = 4
+
+[*.{kt,kts}]
+ktlint_standard_annotation = disabled
