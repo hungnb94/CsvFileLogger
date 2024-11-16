@@ -6,7 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.elvishew.xlog.XLog
+import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
 	private lateinit var btnLogVerbose: Button
@@ -32,19 +32,19 @@ class MainActivity : AppCompatActivity() {
 		btnLogError = findViewById(R.id.btnLogError)
 		btnFireException = findViewById(R.id.btnFireException)
 		btnLogVerbose.setOnClickListener {
-			XLog.v("Log verbose")
+			Timber.v("Log verbose")
 		}
 		btnLogDebug.setOnClickListener {
-			XLog.d("Log debug")
+			Timber.d("Log debug")
 		}
 		btnLogInfo.setOnClickListener {
-			XLog.i("Log info")
+			Timber.i("Log info")
 		}
 		btnLogWarn.setOnClickListener {
-			XLog.w("Log warn", RuntimeException("warn!"))
+			Timber.w(RuntimeException("warn!"), "Log warn")
 		}
 		btnLogError.setOnClickListener {
-			XLog.e("Log error", RuntimeException("error!!!"))
+			Timber.e(RuntimeException("error!!!"), "Log error")
 		}
 		btnFireException.setOnClickListener {
 			throw Exception("Uncaught exception")

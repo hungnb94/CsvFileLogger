@@ -36,11 +36,13 @@ android {
 }
 
 dependencies {
+	implementation(project(":logging"))
 	implementation(libs.androidx.core.ktx)
 	implementation(libs.androidx.appcompat)
 	implementation(libs.material)
 	implementation(libs.androidx.activity)
 	implementation(libs.androidx.constraintlayout)
+	implementation(libs.timber)
 	implementation(libs.xlog)
 	testImplementation(libs.junit)
 	androidTestImplementation(libs.androidx.junit)

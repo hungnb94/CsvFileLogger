@@ -34,6 +34,7 @@ android {
 
 dependencies {
 	implementation(libs.timber)
+	implementation(libs.xlog)
 	testImplementation(libs.junit)
 	androidTestImplementation(libs.androidx.junit)
 	androidTestImplementation(libs.androidx.espresso.core)
