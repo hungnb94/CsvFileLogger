@@ -13,5 +13,5 @@ class CsvFileNameGenerator : FileNameGenerator {
 	override fun generateFileName(
 		logLevel: Int,
 		timestamp: Long,
-	): String = timeFormat.format(Date(timestamp))
+	): String = "${timeFormat.format(Date(timestamp))}.csv"
 }
