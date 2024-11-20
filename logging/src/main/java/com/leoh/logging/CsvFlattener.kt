@@ -14,5 +14,5 @@ class CsvFlattener : Flattener2 {
 		logLevel: Int,
 		tag: String?,
 		message: String?,
-	): CharSequence = "${timeFormat.format(Date(timeMillis))}, ${LogLevel.getLevelName(logLevel)}, $tag, $message"
+	): CharSequence = """"${timeFormat.format(Date(timeMillis))}","${LogLevel.getLevelName(logLevel)}","$tag","$message""""
 }
