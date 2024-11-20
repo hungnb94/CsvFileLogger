@@ -23,7 +23,7 @@ allprojects {
 
 ```groovy
 dependencies {
-	implementation("com.github.hungnb94:csv-file-loging:1.0.1")
+	implementation("com.github.hungnb94:csv-file-loging:1.0.2")
 }
 ```
 
