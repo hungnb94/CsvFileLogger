@@ -1,6 +1,7 @@
 plugins {
 	alias(libs.plugins.android.library)
 	alias(libs.plugins.kotlin.android)
+	id("maven-publish")
 }
 
 android {
@@ -38,4 +39,19 @@ dependencies {
 	testImplementation(libs.junit)
 	androidTestImplementation(libs.androidx.junit)
 	androidTestImplementation(libs.androidx.espresso.core)
+}
+
+afterEvaluate {
+	publishing {
+		publications {
+			register("release", MavenPublication::class) {
+				from(components["release"])
+				groupId = providers.gradleProperty("GROUP_ID").get()
+
+				artifactId = providers.gradleProperty("ARTIFACT_ID").get()
+
+				version = providers.gradleProperty("PUBLISH_VERSION").get()
+			}
+		}
+	}
 }
