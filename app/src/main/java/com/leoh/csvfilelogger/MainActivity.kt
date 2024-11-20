@@ -32,10 +32,10 @@ class MainActivity : AppCompatActivity() {
 		btnLogError = findViewById(R.id.btnLogError)
 		btnFireException = findViewById(R.id.btnFireException)
 		btnLogVerbose.setOnClickListener {
-			Timber.v("Log verbose")
+			Timber.v("Log \"verbose\" message")
 		}
 		btnLogDebug.setOnClickListener {
-			Timber.d("Log debug")
+			Timber.d("Log \'debug\' message")
 		}
 		btnLogInfo.setOnClickListener {
 			Timber.i("Log info")
