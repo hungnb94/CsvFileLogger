@@ -1,4 +1,5 @@
 # Write Log to File for Android
+[![](https://jitpack.io/v/hungnb94/csv-file-loging.svg)](https://jitpack.io/#hungnb94/csv-file-loging)
 
 This project demonstrates how to write application logs to a file in an Android app.
 Logging to a file is useful for debugging, tracking application behavior, or collecting analytics for specific events.
