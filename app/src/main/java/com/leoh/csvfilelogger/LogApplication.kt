@@ -1,8 +1,7 @@
 package com.leoh.csvfilelogger
 
 import android.app.Application
-import com.leoh.logging.CsvFilePrinter
-import com.leoh.logging.FileTree
+import com.leoh.logging.CsvFileTree
 import timber.log.Timber
 
 class LogApplication : Application() {
@@ -13,6 +12,6 @@ class LogApplication : Application() {
 
 	private fun initLog() {
 		obbDir.mkdirs()
-		Timber.plant(FileTree(CsvFilePrinter(obbDir)))
+		Timber.plant(CsvFileTree(obbDir))
 	}
 }

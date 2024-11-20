@@ -7,7 +7,7 @@ import java.util.Date
 import java.util.Locale
 
 class CsvFlattener : Flattener2 {
-	private val timeFormat = SimpleDateFormat("yyyy-MM-dd_HH:mm:ss.SSS", Locale.US)
+	private val timeFormat = SimpleDateFormat("HH:mm:ss.SSS", Locale.US)
 
 	override fun flatten(
 		timeMillis: Long,

@@ -3,7 +3,7 @@ package com.leoh.logging
 import com.elvishew.xlog.printer.Printer
 import timber.log.Timber
 
-class FileTree(
+open class FileTree(
 	private val filePrinter: Printer,
 ) : Timber.DebugTree() {
 	init {
